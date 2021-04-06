@@ -1,0 +1,5 @@
+Ansible mot en webbserverSätt upp ett Ansible-projekt som du använder för attdirekt deploya ut en webbserver.
+Vad för webbsida du servrar på webbservern spelaringen roll.
+(Jenkins är inte inblandat här)
+Programmet som ska deployas ut på servern är Lighthttpd:
+https://cloudwafer.com/blog/installing-lighttpd-web-server-on-debian-9/Dokumentera hur du gjort och hur du tänkt.
