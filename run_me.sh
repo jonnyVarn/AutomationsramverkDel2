@@ -1,2 +1,2 @@
 apt install ansible -y
-ansible-playbook -i hosts.yaml jenkins.yaml
+ansible-playbook -i hosts.yml jenkins.yml
