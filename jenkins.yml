@@ -22,8 +22,9 @@
       update_cache: yes
       name: jenkins
       state: present
+      
   
-  - name: "start jenkins"
+  - name: "start & enable jenkins"
     service:
       name: jenkins
       enabled: yes
