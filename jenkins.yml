@@ -8,7 +8,7 @@
 
   - name: "install java"
     apt:
-      name: openjdk-14-jdk-headless
+      name: openjdk-11-jdk-headless
   
   - name: "install jenkins repo & key"
     ansible.builtin.apt_repository:
