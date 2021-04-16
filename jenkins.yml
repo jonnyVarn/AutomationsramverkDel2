@@ -10,19 +10,19 @@
     apt:
       name: default-jdk
   
-  #- name: "install jenkins repo & key"
-  #  ansible.builtin.apt_repository:
-  #    repo: deb http://pkg.jenkins.io/debian-stable binary/
-  #    state: present
+  - name: "install jenkins repo & key"
+    ansible.builtin.apt_repository:
+      repo: deb http://pkg.jenkins.io/debian-stable binary/
+        state: present
     
-  - name: "install jenkins repo & key"  
+  name: "install jenkins repo & key"  
     shell: wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add - ; sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' ; sudo apt update ; sudo apt install jenkins -y
   
-  - name: "install jenkins"
-    apt: 
-      update_cache: yes
-      name: jenkins
-      state: present
+  #- name: "install jenkins"
+    #apt: 
+      #update_cache: yes
+      #name: jenkins
+      #state: present
       
   
   - name: "start & enable jenkins"
