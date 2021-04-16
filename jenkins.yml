@@ -1,0 +1,42 @@
+- hosts: ansible
+  become: yes
+  tasks:
+  - name: "apt-get update"
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: "install java"
+    apt:
+      name: openjdk-12
+  
+  - name: "install jenkins repo & key"
+    shell: wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add - ; sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' ; apt update
+  
+  - name: "install jenkins"
+    apt: 
+      name: jenkins
+      state: latest
+  
+  - name: "start jenkins"
+    service:
+      name: jenkins
+      enabled: yes
+      state: started
+      
+  - name: "disable systemctl-services bluetooth"
+    service: 
+      name: bluetooth.target
+      enabled: no
+      state: stopped
+
+  - name: "disable systemctl-service unattended-uppgrade "
+    service:
+      name: unattended-upgrades.service
+      enabled: no
+      state: stopped
+
+  - name: "remove unattended-uppgrades"
+    apt: 
+      name: unattended-uppgrades
+      state: absent
