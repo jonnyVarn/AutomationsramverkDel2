@@ -1,4 +1,4 @@
-- hosts: ansible
+- hosts: jenkins
   become: yes
   tasks:
   - name: "apt-get update"
